@@ -1,0 +1,3 @@
+timestamp_utc,endpoint,filename,content_type,status,top1_class,top1_confidence,inference_time_ms
+2026-06-09T01:52:15.076007+00:00,/classify-image,classroom_object.jpg,image/jpeg,ok,desktop computer,0.113012,28.268
+2026-06-09T01:52:30.905232+00:00,/classify-image,classroom_object.jpg,image/jpeg,ok,desktop computer,0.113012,12.419
