@@ -174,7 +174,7 @@ def classify_image_demo():
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <mecharset="UTF-8" />
+  <meta charset="UTF-8" />
   <title>Lab 5 - Image Classification UI</title>
   <style>
     :root { --blue:#0b3a75; --orange:#f28c28; --light:#f6f8fb; --border:#d8dee9; }
@@ -204,8 +204,10 @@ def classify_image_demo():
   </div>
 
   <div class="card">
-    <input id="file" type="file" accept="image/*" />
-    <button onclick="classifyImage()">Upload và phân loại ảnh</button>
+    <form id="imageForm" onsubmit="event.preventDefault(); classifyImage();">
+      <input id="file" name="file" type="file" accept="image/*" required />
+      <button type="submit">Upload và phân loại ảnh</button>
+    </form>
     <span id="status" class="pill">Chưa thực hiện inference</span>
   </div>
 
