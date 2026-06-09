@@ -72,7 +72,18 @@ http://127.0.0.1:8000/docs
 http://127.0.0.1:8000/classify-image-demo
 ```
 
-## 5. Build và chạy Docker
+## 5. So sánh chạy local và Docker
+
+| Tiêu chí | Chạy local | Chạy Docker |
+|---|---|---|
+| Thiết lập môi trường | Tạo virtualenv, cài Python packages và chạy Uvicorn | Build image và chạy container, chỉ cần Docker | 
+| Tốc độ khởi động | Nhanh nếu môi trường Python đã sẵn sàng | Chậm hơn một chút do build image lần đầu | 
+| Triển khai lại | Cần lặp lại `pip install` và reload | Chỉ cần rebuild image hoặc restart container | 
+| Khả năng tái tạo | Phụ thuộc pip/resolved environment | Ổn định hơn, tách biệt bằng Docker image | 
+| Truy cập file `models/vision` | Trực tiếp trong dự án | Mount volume hoặc build vào image | 
+| Lưu log `outputs/` | Tạo ngay trong thư mục project | Dùng bind mount `outputs` để giữ dữ liệu persist | 
+
+## 6. Build và chạy Docker
 
 ```bash
 docker build -t lab5-aiot-inference:v4 .
@@ -152,3 +163,5 @@ LOCAL_PIPELINE_TEST_PASS
 - Ảnh `/classify-image-demo` khi chạy container.
 - File log trong `outputs/`.
 - Bảng so sánh chạy local và Docker.
+
+> Lưu ý: bạn có thể đặt ảnh vào `docs/screenshots/` với tên rõ ràng như `health-local.png`, `docker-logs.png`, và `swagger-docs-container.png`.
